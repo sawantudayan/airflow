@@ -5,7 +5,9 @@
 3. Create a docker-compose file
     cmd: {curl -LfO 'https://airflow.apache.org/docs/apache-airflow/stable/docker-compose.yaml'}. 
     It would generate a new file: {docker-compose.yaml}
+3. Execute cmd : {pip install "apache-airflow[celery]==2.6.0" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.6.0/constraints-3.7.txt"} to install celery and dependencies.
 4. Review the docker-compose file
+    Run (airflow db init) or {airflow db upgrade}
 5. Create 3 folder: dags, logs and plugins
 6. Run the command: {echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" >.env} to create a .env file
 7. To start the database, it is incharge of the running all the databases: {docker-compose up [application-name]}
